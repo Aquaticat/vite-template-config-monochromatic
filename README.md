@@ -1,0 +1,1 @@
+# vite-template-config-monochromatic
