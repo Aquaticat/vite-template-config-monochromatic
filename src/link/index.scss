@@ -50,7 +50,7 @@ Implementation of html-in-css
 @use 'Sectioning_content/section/_.scss' as section;
 //endregion
 
-@use 'mixin' as *;
+@use '_mixin.scss' as *;
 
 //region font-face
 
@@ -142,6 +142,7 @@ Implementation of html-in-css
   }
 
   // rem based pixel
+  // em is named M here because https://www.w3.org/Style/LieBos3e/em
   --rmp: calc(1rem / 16);
 
   // rem based pixel, clamped so it's never smaller than 1 pixel or larger than 2 pixels.

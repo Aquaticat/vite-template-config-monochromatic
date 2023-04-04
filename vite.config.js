@@ -4,35 +4,34 @@ import { readFileSync, writeFileSync } from 'fs';
 
 import { parse } from 'node-html-parser';
 
+
 process.env.BROWSER = 'C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome.exe';
 
-export const fixHtmlHead = () => {
-  return {
-    name: 'vite-plugin-fixHtmlHead',
-    closeBundle: async () => {
-      await (() => {
-        const html = parse(readFileSync('docs/index.html', { encoding: 'utf-8' }));
+export const fixHtmlHead = () => ({
+  name: 'vite-plugin-fixHtmlHead',
+  closeBundle: async () => {
+    await (() => {
+      const html = parse(readFileSync('dist/intermediate/assets/index.html', { encoding: 'utf-8' }));
 
-        html
-          .querySelector('[src="/assets/index.js"]')
-          .removeAttribute('crossorigin');
-        html
-          .querySelector('[href="/assets/style.css"]')
-          .setAttribute('blocking', 'render');
+      html
+        .querySelector('[src="/assets/index.js"]')
+        .removeAttribute('crossorigin');
+      html
+        .querySelector('[href="/assets/style.css"]')
+        .setAttribute('blocking', 'render');
 
-        writeFileSync('docs/index.html', html.toString());
-      })();
-    },
-  };
-};
+      writeFileSync('docs/index.html', html.toString());
+    })();
+  },
+});
 
 export default {
   //region Shared Options
-  root: 'src',
+  root: 'src/link',
   css: {
     preprocessorOptions: {
       scss: {
-        OutputStyle: 'expanded',
+        outputStyle: 'expanded',
       },
     },
   },
@@ -64,19 +63,20 @@ export default {
 
   //region Build Options
   build: {
+    minify: false,
     target: 'esnext',
     modulePreload: false,
 
     emptyOutDir: false,
-    outDir: '../dist',
+    outDir: '../../dist/intermediate/assets',
     assetsInlineLimit: 0,
     cssCodeSplit: false,
     reportCompressedSize: false,
     rollupOptions: {
       output: {
-        entryFileNames: 'assets/[name].js',
-        chunkFileNames: 'assets/[name].js',
-        assetFileNames: 'assets/[name].[ext]',
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name].js',
+        assetFileNames: '[name].[ext]',
       },
     },
   },
@@ -99,11 +99,11 @@ export default {
 
   //region Plugins
   plugins: [
-    {
+/*     {
       ...fixHtmlHead(),
       enforce: 'post',
       apply: 'build',
-    },
+    }, */
   ],
   //endregion
 };

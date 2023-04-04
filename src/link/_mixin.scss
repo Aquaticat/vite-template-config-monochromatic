@@ -19,10 +19,7 @@
     &:active {
       color: var(--dark);
       background-color: var(--light);
-      box-shadow: 0.5ch 0.5ex 0 0 var(--light),
-      -0.5ch 0.5ex 0 0 var(--light),
-      0.5ch -0.5ex 0 0 var(--light),
-      -0.5ch -0.5ex 0 0 var(--light);
+      box-shadow: 0 0 0 calc(3 * var(--mp)) var(--light);
     }
   }
 }

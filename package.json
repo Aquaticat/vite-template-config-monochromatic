@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -6,11 +7,19 @@
   },
   "private": true,
   "devDependencies": {
+    "@ltd/j-toml": "^1.38.0",
+    "browserslist": "^4.21.5",
+    "dprint": "^0.35.3",
     "eslint": "^8.36.0",
-    "eslint-config-monochromatic": "^0.0.5",
+    "eslint-config-monochromatic": "^0.0.7",
+    "html-minifier-terser": "^7.1.0",
+    "linkedom": "^0.14.25",
     "node-html-parser": "^6.1.5",
+    "postcss": "^8.4.21",
+    "postcss-preset-env": "^8.0.1",
     "sass": "^1.59.3",
-    "vite": "^4.1.4"
+    "shelljs": "^0.8.5",
+    "vite": "^4.2.0"
   },
   "dependencies": {
     "@aquaticat/create-element-from-selector": "^0.0.3",

@@ -1,0 +1,23 @@
+{
+  "indentWidth": 2,
+  "typescript": {
+    "semiColons": "always",
+    "nextControlFlowPosition": "nextLine",
+    "quoteStyle": "alwaysSingle",
+    "arrowFunction.useParentheses": "force",
+    "module.sortImportDeclarations": "maintain",
+    "module.sortExportDeclarations": "maintain",
+    "exportDeclaration.sortNamedExports": "maintain",
+    "importDeclaration.sortNamedImports": "maintain",
+    "commentLine.forceSpaceAfterSlashes": "false",
+    "preferHanging": "true",
+    "preferSingleLine": "true"
+  },
+  "includes": ["**/*.{ts,tsx,js,jsx,cjs,mjs}"],
+  "excludes": [
+    "**/node_modules"
+  ],
+  "plugins": [
+    "https://plugins.dprint.dev/typescript-0.83.0.wasm"
+  ]
+}

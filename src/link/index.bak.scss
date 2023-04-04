@@ -2,55 +2,55 @@
 Implementation of html-in-css
 */
 
-@use 'the-new-css-reset/css/reset.css';
+@use 'reset.css';
 
 //region Custom elements
 
-@use 'Custom_elements/wrapper-block/_.scss' as wrapper-block;
-@use 'Custom_elements/wrapper-inline/_.scss' as wrapper-inline;
+@use '_' as wrapper-block;
+@use '_' as wrapper-inline;
 
 //endregion
 
 //region Heading content
-@use 'Heading_content/h1/_.scss' as h1;
-@use 'Heading_content/h2/_.scss' as h2;
-@use 'Heading_content/h3/_.scss' as h3;
-@use 'Heading_content/h4/_.scss' as h4;
-@use 'Heading_content/h5/_.scss' as h5;
-@use 'Heading_content/h6/_.scss' as h6;
-@use 'Heading_content/hgroup/_.scss' as hgroup;
+@use '_' as h1;
+@use '_' as h2;
+@use '_' as h3;
+@use '_' as h4;
+@use '_' as h5;
+@use '_' as h6;
+@use '_' as hgroup;
 //endregion
 
 //region Interactive content
-@use 'Interactive_content/a/_.scss' as a;
-@use 'Interactive_content/button/_.scss' as button;
-@use 'Interactive_content/details/_.scss' as details;
-@use 'Interactive_content/label/_.scss' as label;
-@use 'Interactive_content/label/_id-colorSchemeToggle.scss' as label-id-colorSchemeToggle;
-@use 'Interactive_content/select/_.scss' as select;
-@use 'Interactive_content/textarea/_.scss' as textarea;
+@use '_' as a;
+@use '_' as button;
+@use '_' as details;
+@use '_' as label;
+@use 'id-colorSchemeToggle' as label-id-colorSchemeToggle;
+@use '_' as select;
+@use '_' as textarea;
 //endregion
 
 //region Phrasing content
-@use 'Phrasing_content/address/_.scss' as address;
-@use 'Phrasing_content/address/_class-email.scss' as address-class-email;
-@use 'Phrasing_content/hr/_.scss' as hr;
-@use 'Phrasing_content/pre_-_code/_.scss' as pre_-_code;
-@use 'Phrasing_content/ol_-_ul/_.scss' as ol_-_ul;
+@use '_' as address;
+@use 'class-email' as address-class-email;
+@use '_' as hr;
+@use '_' as pre_-_code;
+@use '_' as ol_-_ul;
 //endregion
 
 //region Sectioning content
-@use 'Sectioning_content/article/_.scss' as article;
-@use 'Sectioning_content/article/_id-copyright.scss' as article-id-copyright;
-@use 'Sectioning_content/aside/_.scss' as aside;
-@use 'Sectioning_content/footer/_.scss' as footer;
-@use 'Sectioning_content/header/_.scss' as header;
-@use 'Sectioning_content/main/_.scss' as main;
-@use 'Sectioning_content/nav/_.scss' as nav;
-@use 'Sectioning_content/section/_.scss' as section;
+@use '_' as article;
+@use 'id-copyright' as article-id-copyright;
+@use '_' as aside;
+@use '_' as footer;
+@use '_' as header;
+@use '_' as main;
+@use '_' as nav;
+@use '_' as section;
 //endregion
 
-@use 'mixin' as *;
+@use 'link/mixin' as *;
 
 //region font-face
 

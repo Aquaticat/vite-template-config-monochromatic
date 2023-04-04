@@ -222,3 +222,6 @@ dist
 
 # Using IntelliJ platform file watcher exposes filesystem path.
 /.idea/watcherTasks.xml
+
+### Include folders that have .gitkeep in it
+!.gitkeep
