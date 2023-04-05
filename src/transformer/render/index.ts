@@ -1,12 +1,16 @@
-import { DOMParser, parseHTML } from 'linkedom';
+import {
+  DOMParser,
+  parseHTML,
+} from 'linkedom';
 
-
-const render = (file, format = 'html') => {
+const render = (file: string, format = 'html'): string => {
   switch (format) {
     case 'html': {
-      const documentFragment = (new DOMParser()).parseFromString(file);
+      const documentFragment = (new DOMParser())
+        .parseFromString(file, 'text/html');
 
-      const { document } = parseHTML(`<html lang="en"
+      const { document } = parseHTML(`
+<html lang="en"
       style="
       --light: #f9f9f9;
       --dark: #1b1b1b;
@@ -31,9 +35,11 @@ const render = (file, format = 'html') => {
 </html>
 `);
 
-      document.body.innerHTML = documentFragment.toString();
+      document.body.innerHTML = [...documentFragment.children].map((documentFragmentChild) =>
+        documentFragmentChild.outerHTML
+      ).join('');
 
-      return document.toString();
+      return [...document.children].map((documentChild) => documentChild.outerHTML).join('');
     }
 
     default: {

@@ -24,7 +24,7 @@
  *                 Scoped to `document.body`, so don't include 'body' at the start!
  *                 To target direct children of body (first), include '>' at the start.
  */
-const wrapWith = (document, wrapperTagName, separatorTagName = '', parentSelectors = '') => {
+const wrapWith = (document: Document, wrapperTagName: string, separatorTagName = '', parentSelectors = ''): void => {
   /* console.debug('\n\nwrapWith\n', (parentSelectors
                                       ? [...document.body.querySelectorAll(`:scope ${parentSelectors}`)]
                                       : [document.body])); */
@@ -34,8 +34,8 @@ const wrapWith = (document, wrapperTagName, separatorTagName = '', parentSelecto
     : [document.body])
     .forEach((parentElement) => {
       parentElement.innerHTML = separatorTagName
-        ? [...parentElement.querySelectorAll(':scope > *')].reduce((html,
-                                                                    htmlElement) => {
+        ? [...parentElement.querySelectorAll(':scope > *')]
+          .reduce((html, htmlElement) => {
             const trimmedHtml = html.trim();
 
             console.warn(trimmedHtml, htmlElement.localName);
@@ -74,7 +74,6 @@ ${htmlElement.outerHTML}
 
             return htmlElement.outerHTML;
           }, '')
-
         : `
 <${wrapperTagName}>
 ${parentElement.innerHTML}

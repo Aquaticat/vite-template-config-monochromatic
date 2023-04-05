@@ -2,22 +2,27 @@
   "indentWidth": 2,
   "typescript": {
     "semiColons": "always",
-    "nextControlFlowPosition": "nextLine",
+    "parentheses.preferSingleLine": true,
     "quoteStyle": "alwaysSingle",
+    "useBraces": "preferNone",
+    "nextControlFlowPosition": "nextLine",
+    "singleBodyPosition": "nextLine",
     "arrowFunction.useParentheses": "force",
+    "binaryExpression.linePerExpression": true,
     "module.sortImportDeclarations": "maintain",
     "module.sortExportDeclarations": "maintain",
     "exportDeclaration.sortNamedExports": "maintain",
+    "exportDeclaration.forceMultiLine": true,
     "importDeclaration.sortNamedImports": "maintain",
-    "commentLine.forceSpaceAfterSlashes": "false",
-    "preferHanging": "true",
-    "preferSingleLine": "true"
+    "importDeclaration.forceMultiLine": true,
+    "commentLine.forceSpaceAfterSlashes": false
   },
   "includes": ["**/*.{ts,tsx,js,jsx,cjs,mjs}"],
   "excludes": [
-    "**/node_modules"
+    "**/node_modules",
+    "**/dist"
   ],
   "plugins": [
-    "https://plugins.dprint.dev/typescript-0.83.0.wasm"
+    "https://plugins.dprint.dev/typescript-0.84.0.wasm"
   ]
 }

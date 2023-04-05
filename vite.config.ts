@@ -1,31 +1,42 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { readFileSync, writeFileSync } from 'fs';
+import {
+  defineConfig,
+} from 'vite';
 
-import { parse } from 'node-html-parser';
+import {
+  readFileSync,
+  writeFileSync,
+} from 'fs';
 
+import {
+  parse,
+} from 'node-html-parser';
 
-process.env.BROWSER = 'C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome.exe';
+process.env['BROWSER'] = 'C:\\Program Files\\Google\\Chrome Dev\\Application\\chrome.exe';
 
-export const fixHtmlHead = () => ({
+export const fixHtmlHead = (): {
+  closeBundle: () => void;
+  name: string;
+} => ({
   name: 'vite-plugin-fixHtmlHead',
-  closeBundle: async () => {
-    await (() => {
-      const html = parse(readFileSync('dist/intermediate/assets/index.html', { encoding: 'utf-8' }));
+  closeBundle: () => {
+    const html = parse(readFileSync('dist/intermediate/assets/index.html', {
+      encoding: 'utf-8',
+    }));
 
-      html
-        .querySelector('[src="/assets/index.js"]')
-        .removeAttribute('crossorigin');
-      html
-        .querySelector('[href="/assets/style.css"]')
-        .setAttribute('blocking', 'render');
+    html
+      .querySelector('[src="/index.js"]')!
+      .removeAttribute('crossorigin');
+    html
+      .querySelector('[href="/style.css"]')!
+      .setAttribute('blocking', 'render');
 
-      writeFileSync('docs/index.html', html.toString());
-    })();
+    writeFileSync('dist/intermediate/assets/index.html', html.toString());
   },
 });
 
-export default {
+export default defineConfig({
   //region Shared Options
   root: 'src/link',
   css: {
@@ -63,7 +74,23 @@ export default {
 
   //region Build Options
   build: {
-    minify: false,
+    minify: 'terser',
+    terserOptions: {
+      ecma: 2020,
+      compress: false,
+      mangle: false,
+      module: true,
+      format: {
+        indent_level: 2,
+        keep_numbers: true,
+        keep_quoted_props: true,
+        quote_style: 3,
+      },
+      keep_classnames: true,
+      keep_fnames: true,
+    },
+    cssMinify: false,
+
     target: 'esnext',
     modulePreload: false,
 
@@ -99,11 +126,11 @@ export default {
 
   //region Plugins
   plugins: [
-/*     {
+    {
       ...fixHtmlHead(),
       enforce: 'post',
       apply: 'build',
-    }, */
+    },
   ],
   //endregion
-};
+});
