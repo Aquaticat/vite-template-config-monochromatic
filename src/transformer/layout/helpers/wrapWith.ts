@@ -38,18 +38,8 @@ const wrapWith = (document: Document, wrapperTagName: string, separatorTagName =
           .reduce((html, htmlElement) => {
             const trimmedHtml = html.trim();
 
-            console.warn(trimmedHtml, htmlElement.localName);
-
             if (trimmedHtml) {
               if (htmlElement.localName === separatorTagName) {
-                if (trimmedHtml.endsWith(`</${wrapperTagName}>`)) {
-                  return `
-${trimmedHtml}
-<${wrapperTagName}>
-${htmlElement.outerHTML}
-`;
-                }
-
                 return `
 ${trimmedHtml}
 </${wrapperTagName}>

@@ -67,6 +67,7 @@ export default defineConfig({
         'index.js',
         'index.mts',
         'index.ts',
+        'formats.html',
       ],
     },
   },
@@ -119,8 +120,8 @@ export default defineConfig({
 
   //region Dep Optimization Options
   optimizeDeps: {
-    entries: ['index.html'],
-    force: true,
+    entries: ['index.html', 'format.html'],
+    // force: true,
   },
   //endregion
 

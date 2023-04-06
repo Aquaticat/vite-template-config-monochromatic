@@ -8,6 +8,8 @@
   "private": true,
   "devDependencies": {
     "@ltd/j-toml": "^1.38.0",
+    "@types/js-beautify": "^1.13.3",
+    "@types/marked": "^4.0.8",
     "@types/node": "^18.15.11",
     "@types/shelljs": "^0.8.11",
     "browserslist": "^4.21.5",
@@ -17,7 +19,9 @@
     "eslint-config-monochromatic": "^0.0.15",
     "eslint-config-monochromatic-typescript": "^0.0.13",
     "html-minifier-terser": "^7.1.0",
+    "js-beautify": "^1.14.7",
     "linkedom": "^0.14.25",
+    "marked": "^4.3.0",
     "node-html-parser": "^6.1.5",
     "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",

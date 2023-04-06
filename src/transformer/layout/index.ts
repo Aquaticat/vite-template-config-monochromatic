@@ -12,7 +12,11 @@ import wrapWith from './helpers/wrapWith.ts';
 
 import insertHeader from './header/insertHeader.ts';
 
+import insertFooter from './footer/insertFooter.ts';
+
 import type Variables from './html/Variables.d.ts';
+
+import insertNav from './nav/insertNav.ts';
 
 const layout = (file: string, variables: Variables, extractedTitleFromFileName = ''): string => {
   const { document } = parseHTML(file);
@@ -102,63 +106,63 @@ const layout = (file: string, variables: Variables, extractedTitleFromFileName =
 
   wrapWith(document, 'article', 'wrapper-block');
 
-  wrapWith(document, 'main');
+  document.querySelectorAll(':scope > article').forEach((article) => {
+    article.id = uniqueId(document, potentialId(article.querySelector(':scope > wrapper-block > h1')!));
+  })
 
-  insertHeader(document, extractedTitleFromFileName);
-
-  // console.log(document.body.querySelectorAll(':scope > article:has(> h2)'));
-
-  document.body.querySelectorAll(':scope > article')
+  document.body.querySelectorAll(':scope > article:has(> wrapper-block > section > h2)')
     .forEach((article) => {
       article.innerHTML = `
 ${article.innerHTML}
 
-${
-        article.querySelector('h2')
-          ? `
 <aside>
 <h1>
 In this article:
 </h1>
 
 <ol>
-<!-- TODO: Add section wrappers first! Because we are only selecting child elements in queryselector. -->
+<!-- TODO: Add section wrappers first! Because we are only selecting child elements in queryselector.
+           Done adding section wrapper. Now working on this. -->
 ${
-            [...article.querySelectorAll('h2')]
-              .reduce((html2, h2) => `
+        [...article.querySelectorAll(':scope > wrapper-block > section:has(h2)')]
+          .reduce((html2, h2Section) => `
 ${html2}
 <li>
-<a href="#${h2.id || ''}">${h2.textContent}</a>
+<a href="#${h2Section.id}">${h2Section.querySelector(':scope > h2')!.textContent}</a>
 
 ${
-                h2.querySelector('~ section:has(h3)')
-                  ? `
+            h2Section.querySelector(':scope > section:has(h3)')
+              ? `
 <ol>
 ${
-                    [...h2.querySelectorAll('~ section:has(h3)')].map((h3Section) => h3Section.querySelector('h3')!)
-                      .reduce((html3, h3) => `
+                [...h2Section.querySelectorAll(':scope > section:has(h3)')]
+                  .reduce((html3, h3Section) => `
 ${html3}
 <li>
-<a href="#${
-                        h3.id || ''
-                      }">${h3.textContent}</a>
+<a href="#${h3Section.id}">${h3Section.querySelector(':scope > h3')!.textContent}</a>
 </li>
 `, '')
-                  }
+              }
 </ol>
 `
-                  : ''
-              }
+              : ''
+          }
 </li>
 `, '')
-          }
+      }
 </ol>
 </aside>
- `
-          : ''
-      }
 `;
     });
+
+  wrapWith(document, 'main');
+
+  insertHeader(document, extractedTitleFromFileName);
+  insertFooter(document);
+
+  wrapWith(document, 'wrapper-block');
+
+  insertNav(document);
 
   //endregion
 
