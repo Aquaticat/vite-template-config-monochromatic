@@ -1,12 +1,8 @@
 {
-  "extends": "tsconfig-monochromatic/tsconfig.json",
-
-  "include": [
-    "src/**/*",
-    "vite.config.ts"
-  ],
+  "extends": "tsconfig-monochromatic",
 
   "compilerOptions": {
+    "traceResolution": false
   },
 
   "ts-node": {

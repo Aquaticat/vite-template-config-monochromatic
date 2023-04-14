@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/index.ts"],
+  "sourcesContent": ["import path from 'path';\n\nimport fs from 'fs';\n\nconst closestPath = (currentPath: string = path.resolve(), selectors = 'package.json', layers = 1): string => {\n  if (fs.existsSync(path.join(currentPath, selectors))) {\n    if (layers === 1) {\n      return currentPath;\n    }\n\n    return closestPath(path.join(currentPath, '..'), selectors, layers - 1);\n  }\n\n  return closestPath(path.join(currentPath, '..'), selectors, layers);\n}\n\nexport default closestPath;\n"],
+  "mappings": ";AAAA,OAAO,UAAU;AAEjB,OAAO,QAAQ;AAEf,IAAM,cAAc,CAAC,cAAsB,KAAK,QAAQ,GAAG,YAAY,gBAAgB,SAAS,MAAc;AAC5G,MAAI,GAAG,WAAW,KAAK,KAAK,aAAa,SAAS,CAAC,GAAG;AACpD,QAAI,WAAW,GAAG;AAChB,aAAO;AAAA,IACT;AAEA,WAAO,YAAY,KAAK,KAAK,aAAa,IAAI,GAAG,WAAW,SAAS,CAAC;AAAA,EACxE;AAEA,SAAO,YAAY,KAAK,KAAK,aAAa,IAAI,GAAG,WAAW,MAAM;AACpE;AAEA,IAAO,cAAQ;",
+  "names": []
+}

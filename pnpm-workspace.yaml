@@ -1,0 +1,8 @@
+packages:
+  - 'config.monochromatic.dev/*'
+
+  - 'monochromatic.dev/*'
+
+  - 'build.monochromatic.dev/*'
+
+  - 'helpers/*'

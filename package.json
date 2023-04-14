@@ -12,9 +12,7 @@
     "@types/marked": "^4.0.8",
     "@types/node": "^18.15.11",
     "@types/shelljs": "^0.8.11",
-    "browserslist": "^4.21.5",
     "cssnano": "^6.0.0",
-    "dprint": "^0.35.3",
     "eslint": "^8.37.0",
     "eslint-config-monochromatic": "^0.0.15",
     "eslint-config-monochromatic-typescript": "^0.0.13",
@@ -26,15 +24,17 @@
     "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",
     "postcss-preset-env": "^8.0.1",
-    "sass": "^1.59.3",
+    "sass": "^1.61.0",
     "shelljs": "^0.8.5",
     "ts-node": "^10.9.1",
     "tsconfig-monochromatic": "^0.0.2",
-    "typescript": "^5.0.3",
-    "vite": "^4.2.0"
+    "typescript": "^5.0.4",
+    "vite": "^4.2.0",
+    "vite-plugin-dts": "^2.2.0"
   },
   "dependencies": {
     "@aquaticat/create-element-from-selector": "^0.0.3",
     "the-new-css-reset": "^1.8.4"
-  }
+  },
+  "version": "0.0.9"
 }

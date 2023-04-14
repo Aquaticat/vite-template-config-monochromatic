@@ -11,6 +11,11 @@ module.exports = {
       ],
 
       extends: ['monochromatic-typescript'],
+
+      parserOptions:{
+        // tsconfigRootDir: __dirname,
+        // project: './tsconfig.eslint.json'
+      }
     },
   ],
 };

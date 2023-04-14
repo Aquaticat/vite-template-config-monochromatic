@@ -170,7 +170,16 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+
+# USER: I want to ignore files in dist only, so I can easily override which dist folder I want to commit to git. (but not its contents)
+# dist
+
+# USER: Ignore intermediate HTML artifact files.
+**/dist/intermediate/*/*.html
+**/dist/final/*.html
+!gitdemo.monochromatic.dev/content/dist/intermediate/*/*.html
+!gitdemo.monochromatic.dev/content/dist/final/*.html
+**/dist/intermediate/layout/*/*.html
 
 # Gatsby files
 .cache/
@@ -223,5 +232,16 @@ dist
 # Using IntelliJ platform file watcher exposes filesystem path.
 /.idea/watcherTasks.xml
 
-### Include folders that have .gitkeep in it
-!.gitkeep
+
+### Exclude auto generated files. Update: Why is this not working?
+
+# Exclude my version of hash (just concatenated the files)
+**/dist/final.txt
+
+**/dist/final/*.js
+**/dist/final/*.d.ts
+**/dist/intermediate/*/*.js
+**/dist/intermediate/*/*.js.map
+**/dist/intermediate/**/*.d.ts
+**/dist/intermediate/**/*.d.ts.map
+**/dist/intermediate/*/meta.json

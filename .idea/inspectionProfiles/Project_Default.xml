@@ -36,5 +36,8 @@
     <inspection_tool class="IgnoreCoverEntry" enabled="true" level="TEXT ATTRIBUTES" enabled_by_default="true" editorAttributes="REASSIGNED_LOCAL_VARIABLE_ATTRIBUTES" />
     <inspection_tool class="IgnoreDuplicateEntry" enabled="true" level="TEXT ATTRIBUTES" enabled_by_default="true" editorAttributes="DUPLICATE_FROM_SERVER" />
     <inspection_tool class="IgnoreUnusedEntry" enabled="true" level="INFORMATION" enabled_by_default="true" editorAttributes="INFORMATION_ATTRIBUTES" />
+    <inspection_tool class="JsonStandardCompliance" enabled="true" level="WARNING" enabled_by_default="true" editorAttributes="WARNING_ATTRIBUTES">
+      <option name="myWarnAboutComments" value="false" />
+    </inspection_tool>
   </profile>
 </component>

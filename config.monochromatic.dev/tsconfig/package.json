@@ -1,0 +1,26 @@
+{
+  "name": "@config.monochromatic.dev/tsconfig",
+  "version": "0.0.1",
+  "description": "Monochromatic's tsconfig.json",
+  "main": "tsconfig.json",
+  "files": ["tsconfig.json"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aquaticat/tsconfig-monochromatic.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "config",
+    "monochromatic",
+    "tsconfig",
+    "typescript"
+  ],
+  "author": {
+    "name": "Aquaticat",
+    "email": "an@aquati.cat",
+    "url": "https://aquati.cat"
+  },
+  "license": "Apache-2.0"
+}
